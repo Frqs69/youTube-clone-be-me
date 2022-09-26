@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube - clone</title>
+    <link rel="icon" type="image/gif/png" href="src/img/ytLogo3.png">
+    <link rel="stylesheet" href="./src/scss/main.scss">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a0ba3c54eb.js" crossorigin="anonymous"></script>
+    <script defer src="./src/js/main.js"></script>
+</head>
+
+<body>
+
+    <div class="infoOnStart">
+        <div class="backgound">
+            <div class="infoOnStart_content">
+                <h1 class="infoOnStart_content-title">Informacje o projekcie</h1>
+                <p class="infoOnStart_content-text">Przedstawiony projekt jest odwzorowaniem portalu <a
+                        href="https://www.youtube.com/" target="_blank">YouTube.com </a> Projekt został zrealizowany
+                    tak, aby wyglądem
+                    przypominał w jak największym stopniu znany portal z filmami</p>
+                <p class="infoOnStart_content-instruction">Instrukcja:</p>
+                <p class="infoOnStart_content-instruction">Po zamknięciu tego okna można włączyć API obsługujące
+                    wyszukiwarkę filmików, która działa według API
+                    udostępnionego przez YouTube. Filmy można wyszukiwać po nazwie lub wybierając jedną z kategorii z
+                    menu poniżej wyszukiwarki. Po kliknięciu na jeden z załadowanych po wyszukaniu filmików zostanie
+                    otwarte nowe okno z filmikiem, któremu odpowiada miniaturka.</p>
+                <button aria-label="close info screen" class="infoOnStart_content-close"><i
+                        class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="API">
+        <p class="API_description">Włącz API YouTube</p>
+        <label class="API_switch" for="API_Switch">
+            <input type="checkbox" class="API_switch-input" id="API_Switch">
+            <span class="API_switch-slider round"></span>
+        </label>
+    </div>
+
+    <div class="API_info">
+        <p>Aby móc korzystać z wyszukiwarki filmów, włącz API</p>
+    </div>
+
+
+
+    <header>
+        <div class="upper_header">
+            <div class="leftPanel">
+                <button class='mainMenuBtn' aria-label="button main menu"><i
+                        class="fa-solid fa-bars nav_icon icons"></i></button>
+                <a href="#" class="leftPanel-logo">
+                    <h1 class="logo"><i class="fa-brands fa-youtube"></i>YouTube</h1>
+                </a>
+            </div>
+
+            <div class="middlePanel">
+                <form action="">
+                    <input type="text" placeholder="Szukaj" class="form_text">
+                    <button class="form_searchBtn" aria-label="button search"><i
+                            class="fa-solid fa-magnifying-glass icons"></i>
+                        <div class="hoverInfo searchBtnInfo">Szukaj</div>
+                    </button>
+                </form>
+                <div class="microfonIcon"><i class="fa-solid fa-microphone icons"></i>
+                    <div class="hoverInfo microfonBtnInfo">Wyszukaj głosowo</div>
+                </div>
+            </div>
+
+            <div class="middlePanel-mobile">
+                <button class="backBtn">
+                    <i class="fa-solid fa-arrow-left-long"></i>
+                </button>
+                <form action="">
+                    <input type="text" placeholder="Szukaj" class="form_text form_text-mobile">
+                    <button class="form_searchBtn form_searchBtn-mobile"><i
+                            class="fa-solid fa-magnifying-glass icons"></i>
+                        <div class="hoverInfo searchBtnInfo">Szukaj</div>
+                    </button>
+                </form>
+                <div class="microfonIcon"><i class="fa-solid fa-microphone icons"></i>
+                    <div class="hoverInfo microfonBtnInfo">Wyszukaj głosowo</div>
+                </div>
+            </div>
+
+            <div class="rightPanel">
+                <div class="cameraIcon"><i class="fa-solid fa-video icons"></i>
+                    <div class="hoverInfo cameraBtnInfo">Utwórz</div>
+                    <div class="cameraIconMenu">
+                        <ul>
+                            <li><i class="fa-solid fa-circle-play"></i><span>Prześlij film</span></li>
+                            <li><i class="fa-solid fa-wifi"></i><span>Transmituj na żywo</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="ringBellIcon"><i class="fa-solid fa-bell icons"></i>
+                    <div class="hoverInfo ringBtnInfo">Powiadomienia</div>
+                    <div class="ringBellIconMenu">
+                        <div class="ringBellIconMenu-Title">
+                            <p class="">Powiadomienia</p>
+                            <div class="gear"><i class="fa-solid fa-gear"></i>
+                                <div class="hoverInfo ringBellSettingsBtn">Ustawienia</div>
+                            </div>
+                        </div>
+
+                        <ul>
+                            <li><span>Powiadomienie 1</span></li>
+                            <li><span>Powiadomienie 2</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="userAccIcon">
+                    <span>K</span>
+                    <div class="userAccMenu">
+                        <div class="userInfoMenu">
+                            <div class="userAccIconMenu"><span>K</span></div>
+                            <div class="userInfoMenu-content">
+                                <p class="userName">Użytkownik</p>
+                                <a href="#" class="accountSettingsLink">Zarządzaj kontem Google</a>
+                            </div>
+                        </div>
+                        <div class="userMenuLists">
+                            <ul>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-image-portrait icons"></i>
+                                        <p>Twój kanał</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-brands fa-youtube icons"></i>
+                                        <p>YouTube Studio</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-arrows-rotate icons"></i>
+                                        <p>Przełącz konto</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-arrow-right-to-bracket icons"></i>
+                                        <p>Wyloguj się</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-sack-dollar icons"></i>
+                                        <p>Zakupy i subskrypcje</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-shield icons"></i>
+                                        <p>Twoje dane w YouTube</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-moon icons"></i>
+                                        <p>Wygląd: tryb urządzenia</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-language icons"></i>
+                                        <p>Język: polski</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-shield-heart icons"></i>
+                                        <p>Tryb ograniczonego dostępu</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-globe icons"></i>
+                                        <p>Lokalizacja: Polska</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-keyboard icons"></i>
+                                        <p>Skróty klawiszowe</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-gear icons"></i>
+                                        <p>Ustawienia</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-circle-question icons"></i>
+                                        <p>Pomoc</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-circle-exclamation icons"></i>
+                                        <p>Prześlij opinię</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rightPanel-mobile">
+                <button class="searchBtn-mobile"><i class="fa-solid fa-magnifying-glass icons"></i>
+                </button>
+                <div class="microfonIcon"><i class="fa-solid fa-microphone icons"></i>
+                </div>
+                <div class="cameraIcon"><i class="fa-solid fa-video fa-video_mobile icons"></i>
+                    <div class="hoverInfo cameraBtnInfo">Utwórz</div>
+                    <div class="cameraIconMenu cameraIconMenu_mobile">
+                        <ul>
+                            <li><i class="fa-solid fa-circle-play"></i><span>Prześlij film</span></li>
+                            <li><i class="fa-solid fa-wifi"></i><span>Transmituj na żywo</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="ringBellIcon"><i class="fa-solid fa-bell fa-bell-mobile icons"></i>
+                    <div class="hoverInfo ringBtnInfo">Powiadomienia</div>
+                    <div class="ringBellIconMenu ringBellIconMenu_mobile">
+                        <div class="ringBellIconMenu-Title">
+                            <p class="">Powiadomienia</p>
+                            <div class="gear"><i class="fa-solid fa-gear"></i>
+                                <div class="hoverInfo ringBellSettingsBtn">Ustawienia</div>
+                            </div>
+                        </div>
+
+                        <ul>
+                            <li><span>Powiadomienie 1</span></li>
+                            <li><span>Powiadomienie 2</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="userAccIcon userAccIcon_mobile">
+                    <span>K</span>
+                    <div class="userAccMenu userAccMenu_mobile">
+                        <div class="userInfoMenu">
+                            <div class="userAccIconMenu"><span>K</span></div>
+                            <div class="userInfoMenu-content">
+                                <p class="userName">Użytkownik</p>
+                                <a href="#" class="accountSettingsLink">Zarządzaj kontem Google</a>
+                            </div>
+                        </div>
+                        <div class="userMenuLists">
+                            <ul>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-image-portrait icons"></i>
+                                        <p>Twój kanał</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-brands fa-youtube icons"></i>
+                                        <p>YouTube Studio</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-arrows-rotate icons"></i>
+                                        <p>Przełącz konto</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-arrow-right-to-bracket icons"></i>
+                                        <p>Wyloguj się</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-sack-dollar icons"></i>
+                                        <p>Zakupy i subskrypcje</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-shield icons"></i>
+                                        <p>Twoje dane w YouTube</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-moon icons"></i>
+                                        <p>Wygląd: tryb urządzenia</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-language icons"></i>
+                                        <p>Język: polski</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-shield-heart icons"></i>
+                                        <p>Tryb ograniczonego dostępu</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-globe icons"></i>
+                                        <p>Lokalizacja: Polska</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-keyboard icons"></i>
+                                        <p>Skróty klawiszowe</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-gear icons"></i>
+                                        <p>Ustawienia</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-circle-question icons"></i>
+                                        <p>Pomoc</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa-solid fa-circle-exclamation icons"></i>
+                                        <p>Prześlij opinię</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </header>
+
+
+    <div class="container">
+
+
+        <nav class="nav_shrinked">
+            <ul class="nav_shrinked-ul">
+                <li class="nav_shrinked-ul-li"><a href="#">
+                        <div class="home_icon"> <i class="fa-solid fa-house icons"></i></div>
+                        <p>Główna</p>
+                    </a></li>
+                <li class="nav_shrinked-ul-li"><a href="#">
+                        <div class="dicover_icon"><i class="fa-regular fa-compass icons"></i></div>
+                        <p>Odkrywaj</p>
+                    </a></li>
+                <li class="nav_shrinked-ul-li"><a href="#">
+                        <div class="shorts_icon"><img src="./src/img/shorts.JPG" alt=""></div>
+                        <p>Shorts</p>
+                    </a></li>
+                <li class="nav_shrinked-ul-li"><a href="#">
+                        <div class="subscriptions_icon"><img src="./src/img/subskrypcje.JPG" alt=""></div>
+                        <p>Subscrypcje</p>
+                    </a></li>
+                <li class="nav_shrinked-ul-li"><a href="#">
+                        <div class="library_icon"><img src="./src/img/biblioteka.JPG" alt=""></div>
+                        <p>Biblioteka</p>
+                    </a></li>
+            </ul>
+        </nav>
+
+        <nav class="nav_extended nav-active">
+            <ul class="nav_extended-ul">
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="home_icon"> <i class="fa-solid fa-house icons"></i></div>
+                        <p>Główna</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="dicover_icon"><i class="fa-regular fa-compass icons"></i></div>
+                        <p>Odkrywaj</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="shorts_icon"><img src="./src/img/shorts.JPG" alt=""></div>
+                        <p>Shorts</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="subscriptions_icon"><img src="./src/img/subskrypcje.JPG" alt=""></div>
+                        <p>Subscrypcje</p>
+                    </a></li>
+            </ul>
+            <ul class="nav_extended-ul firstUlList">
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="library_icon"><img src="./src/img/biblioteka.JPG" alt=""></div>
+                        <p>Biblioteka</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="history_icon"><i class="fa-solid fa-clock-rotate-left icons"></i></div>
+                        <p>Historia</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="yourMovies_icon"><i class="fa-solid fa-play icons"></i></div>
+                        <p>Twoje filmy</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="toWatch_icon"><i class="fa-solid fa-clock icons"></i></div>
+                        <p>Do obejrzenia</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="favourite_icon"><i class="fa-solid fa-list-ul icons"></i></div>
+                        <p>Ulubione</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="library_icon"><i class="fa-solid fa-thumbs-up icons"></i></div>
+                        <p>Polubione filmy</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="playlist_icon"><i class="fa-solid fa-list-ul icons"></i></div>
+                        <p>Twoja playlista</p>
+                    </a></li>
+                <li class="nav_extended-ul-li show_more_liItems"><a href="#">
+                        <div class="showMore_icon"><i class="fa-solid fa-chevron-down icons"></i></div>
+                        <p>Pokaż więcej</p>
+                    </a></li>
+            </ul>
+
+            <ul class="nav_extended-ul secondUlList">
+                <p class="nav_extended-ul-title">Subskypcje</p>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 1</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 2</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 3</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 4</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 5</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 6</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 7</p>
+                    </a></li>
+                <!-- to ma się chować -->
+                <li class="nav_extended-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 8</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 9</p>
+                    </a></li>
+                <li class="nav_extended-ul-li show_more_liItems"><a href="#">
+                        <div class="showMore_icon"><i class="fa-solid fa-chevron-down icons"></i></div>
+                        <p>Pokaż więcej</p>
+                    </a></li>
+            </ul>
+
+            <ul class="nav_extended-ul">
+                <p class="nav_extended-ul-title">Odkrywaj</p>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="movies_icon"><i class="fa-solid fa-clapperboard icons"></i></div>
+                        <p>Filmy</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="games_icon"><i class="fa-solid fa-gamepad icons"></i></div>
+                        <p>Gry</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="live_icon"><i class="fa-solid fa-tower-broadcast icons"></i></div>
+                        <p>Na żywo</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="sport_icon"><i class="fa-solid fa-trophy icons"></i></div>
+                        <p>Sport</p>
+                    </a></li>
+            </ul>
+
+            <ul class="nav_extended-ul">
+                <p class="nav_extended-ul-title">Więcej o Youtube</p>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="premium_icon"><i class="fa-brands fa-youtube icons"></div>
+                        <p>YouTube Premium</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="creators_icon"><i class="fa-brands fa-youtube icons"></div>
+                        <p>Studio Twórców</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="music_icon"><i class="fa-brands fa-youtube icons"></div>
+                        <p>YouTube Music</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="kids_icon"><i class="fa-brands fa-youtube icons"></div>
+                        <p>YouTube Kids</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="tv_icon"><i class="fa-brands fa-youtube icons"></div>
+                        <p>YouTube TV</p>
+                    </a></li>
+            </ul>
+
+            <ul class="nav_extended-ul">
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="premium_icon"><i class="fa-solid fa-gear icons"></div>
+                        <p>Ustawienia</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="creators_icon"><i class="fa-solid fa-flag icons"></i></div>
+                        <p>Historia raportów</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="music_icon"><i class="fa-solid fa-circle-question icons"></i></div>
+                        <p>Pomoc</p>
+                    </a></li>
+                <li class="nav_extended-ul-li"><a href="#">
+                        <div class="kids_icon"><i class="fa-solid fa-circle-exclamation icons"></i></div>
+                        <p>Prześlij opinię</p>
+                    </a></li>
+            </ul>
+
+            <div class="special_Links">
+                <a href="">Informacje</a>
+                <a href="">Centrum prasowe</a> <br>
+                <a href="">Prawa autorskie</a> <br>
+                <a href="">Skontaktuj się z nami</a>
+                <a href="">Twórcy</a> <br>
+                <a href="">Reklamy</a>
+                <a href="">Deweloperzy</a> <br><br>
+                </a>
+                <a href="">Warunki</a>
+                <a href="">Prywatność</a> <br>
+                <a href="">Zasady i bezpieczeństwo</a> <br>
+                <a href="">Jak działa YouTube</a> <br>
+                <a href="">Przetestuj nowe funkcje</a> <br><br>
+                <p>&copy; <span>2022</span> Google LLC</p>
+            </div>
+
+        </nav>
+
+        <div class="mobile_shadow"></div>
+        <nav class="nav_extended-mobile">
+            <ul class="nav_extended-mobile-ul">
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="home_icon"> <i class="fa-solid fa-house icons"></i></div>
+                        <p>Główna</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="dicover_icon"><i class="fa-regular fa-compass icons"></i></div>
+                        <p>Odkrywaj</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="shorts_icon"><img src="./src/img/shorts.JPG" alt=""></div>
+                        <p>Shorts</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="subscriptions_icon"><img src="./src/img/subskrypcje.JPG" alt=""></div>
+                        <p>Subscrypcje</p>
+                    </a></li>
+            </ul>
+            <ul class="nav_extended-mobile-ul firstUlList firstUlList-mobile">
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="library_icon"><img src="./src/img/biblioteka.JPG" alt=""></div>
+                        <p>Biblioteka</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="history_icon"><i class="fa-solid fa-clock-rotate-left icons"></i></div>
+                        <p>Historia</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="yourMovies_icon"><i class="fa-solid fa-play icons"></i></div>
+                        <p>Twoje filmy</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="toWatch_icon"><i class="fa-solid fa-clock icons"></i></div>
+                        <p>Do obejrzenia</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="favourite_icon"><i class="fa-solid fa-list-ul icons"></i></div>
+                        <p>Ulubione</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="library_icon"><i class="fa-solid fa-thumbs-up icons"></i></div>
+                        <p>Polubione filmy</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="playlist_icon"><i class="fa-solid fa-list-ul icons"></i></div>
+                        <p>Twoja playlista</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li show_more_liItems"><a href="#">
+                        <div class="showMore_icon"><i class="fa-solid fa-chevron-down icons"></i></div>
+                        <p>Pokaż więcej</p>
+                    </a></li>
+            </ul>
+
+            <ul class="nav_extended-mobile-ul secondUlList secondUlList-mobile">
+                <p class="nav_extended-mobile-ul-title">Subskypcje</p>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 1</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 2</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 3</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 4</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 5</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 6</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 7</p>
+                    </a></li>
+                <!-- to ma się chować -->
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 8</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="subscription-img">
+                        <p>Subskrypcja 9</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li show_more_liItems"><a href="#">
+                        <div class="showMore_icon"><i class="fa-solid fa-chevron-down icons"></i></div>
+                        <p>Pokaż więcej</p>
+                    </a></li>
+            </ul>
+
+            <ul class="nav_extended-mobile-ul">
+                <p class="nav_extended-mobile-ul-title">Odkrywaj</p>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="movies_icon"><i class="fa-solid fa-clapperboard icons"></i></div>
+                        <p>Filmy</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="games_icon"><i class="fa-solid fa-gamepad icons"></i></div>
+                        <p>Gry</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="live_icon"><i class="fa-solid fa-tower-broadcast icons"></i></div>
+                        <p>Na żywo</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="sport_icon"><i class="fa-solid fa-trophy icons"></i></div>
+                        <p>Sport</p>
+                    </a></li>
+            </ul>
+
+            <ul class="nav_extended-mobile-ul">
+                <p class="nav_extended-mobile-ul-title">Więcej o Youtube</p>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="premium_icon"><i class="fa-brands fa-youtube icons"></div>
+                        <p>YouTube Premium</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="creators_icon"><i class="fa-brands fa-youtube icons"></div>
+                        <p>Studio Twórców</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="music_icon"><i class="fa-brands fa-youtube icons"></div>
+                        <p>YouTube Music</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="kids_icon"><i class="fa-brands fa-youtube icons"></div>
+                        <p>YouTube Kids</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="tv_icon"><i class="fa-brands fa-youtube icons"></div>
+                        <p>YouTube TV</p>
+                    </a></li>
+            </ul>
+
+            <ul class="nav_extended-mobile-ul">
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="premium_icon"><i class="fa-solid fa-gear icons"></div>
+                        <p>Ustawienia</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="creators_icon"><i class="fa-solid fa-flag icons"></i></div>
+                        <p>Historia raportów</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="music_icon"><i class="fa-solid fa-circle-question icons"></i></div>
+                        <p>Pomoc</p>
+                    </a></li>
+                <li class="nav_extended-mobile-ul-li"><a href="#">
+                        <div class="kids_icon"><i class="fa-solid fa-circle-exclamation icons"></i></div>
+                        <p>Prześlij opinię</p>
+                    </a></li>
+            </ul>
+
+            <div class="special_Links">
+                <a href="">Informacje</a>
+                <a href="">Centrum prasowe</a> <br>
+                <a href="">Prawa autorskie</a> <br>
+                <a href="">Skontaktuj się z nami</a>
+                <a href="">Twórcy</a> <br>
+                <a href="">Reklamy</a>
+                <a href="">Deweloperzy</a> <br><br>
+                </a>
+                <a href="">Warunki</a>
+                <a href="">Prywatność</a> <br>
+                <a href="">Zasady i bezpieczeństwo</a> <br>
+                <a href="">Jak działa YouTube</a> <br>
+                <a href="">Przetestuj nowe funkcje</a> <br><br>
+                <p>&copy; <span>2022</span> Google LLC</p>
+            </div>
+
+        </nav>
+
+
+        <div class="container_content">
+            <div class="container_category">
+                <ul class="container_category-ul items">
+                    <li class="item"><button class="containerLiBtn activeContainerLi">Wszystko</button></li>
+                    <li class="item"><button class='containerLiBtn'>Playlisty Youtube Mix</button></li>
+                    <li class="item"><button class='containerLiBtn '>Muzyka</button></li>
+                    <li class="item"><button class='containerLiBtn'>Gry</button></li>
+                    <li class="item"><button class='containerLiBtn'>Na żywo</button></li>
+                    <li class="item"><button class='containerLiBtn'>Fitness</button></li>
+                    <li class="item"><button class='containerLiBtn'>Piłka nożna</button></li>
+                    <li class="item"><button class='containerLiBtn'>Przygodowe gry akcji</button></li>
+                    <li class="item"><button class='containerLiBtn'>Rapowanie</button></li>
+                    <li class="item"><button class='containerLiBtn'>Ostatnio przesłane</button></li>
+                    <li class="item"><button class='containerLiBtn'>Obejrzane</button></li>
+                    <li class="item"><button class='containerLiBtn'>Nowe rekomendacje</button></li>
+                </ul>
+                <div class="shadow-right"><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="shadow-left"><i class="fa-solid fa-chevron-left"></i></div>
+            </div>
+
+            <div class="moviesContainer">
+
+                <a href="#" target="_blank" class="movieBox">
+                    <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="movieBox_img">
+                    <span class="movieBox_clickInfo">Kliknij, aby otworzyć</span>
+                    <div class="movieBox_dsc">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="movieBox_dsc_icon">
+                        <div class="movieBox_dsc_text">
+                            <div class="movieBox_dsc_text-Title">Tytuł filmu</div>
+                            <div class="movieBox_dsc_text-Creator">Nazwa kanału</div>
+                            <div class="movieBox_dsc_text-Scope"><span class="views">120 tys. wyświetleń</span><span
+                                    class="uploaded">2 dni temu</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="movieBox">
+                    <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="movieBox_img">
+                    <span class="movieBox_clickInfo">Kliknij, aby otworzyć</span>
+                    <div class="movieBox_dsc">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="movieBox_dsc_icon">
+                        <div class="movieBox_dsc_text">
+                            <div class="movieBox_dsc_text-Title">Tytuł filmu</div>
+                            <div class="movieBox_dsc_text-Creator">Nazwa kanału</div>
+                            <div class="movieBox_dsc_text-Scope"><span class="views">120 tys. wyświetleń</span><span
+                                    class="uploaded">2 dni temu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="movieBox">
+                    <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="movieBox_img">
+                    <span class="movieBox_clickInfo">Kliknij, aby otworzyć</span>
+                    <div class="movieBox_dsc">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="movieBox_dsc_icon">
+                        <div class="movieBox_dsc_text">
+                            <div class="movieBox_dsc_text-Title">Tytuł filmu</div>
+                            <div class="movieBox_dsc_text-Creator">Nazwa kanału</div>
+                            <div class="movieBox_dsc_text-Scope"><span class="views">200 tys. wyświetleń</span><span
+                                    class="uploaded">1 dzień temu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movieBox">
+                    <img src="./src/img/animal-g9f7683c48_640.jpg" alt="zdjecie" class="movieBox_img">
+                    <span class="movieBox_clickInfo">Kliknij, aby otworzyć</span>
+                    <div class="movieBox_dsc">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="movieBox_dsc_icon">
+                        <div class="movieBox_dsc_text">
+                            <div class="movieBox_dsc_text-Title">Tytuł filmu</div>
+                            <div class="movieBox_dsc_text-Creator">Nazwa kanału</div>
+                            <div class="movieBox_dsc_text-Scope"><span class="views">200 tys. wyświetleń</span><span
+                                    class="uploaded">1 dzień temu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="movieBox">
+                    <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="movieBox_img">
+                    <span class="movieBox_clickInfo">Kliknij, aby otworzyć</span>
+                    <div class="movieBox_dsc">
+                        <img src="./src/img/animal-g9f7683c48_640.jpg" alt="" class="movieBox_dsc_icon">
+                        <div class="movieBox_dsc_text">
+                            <div class="movieBox_dsc_text-Title">Tytuł filmu</div>
+                            <div class="movieBox_dsc_text-Creator">Nazwa kanału</div>
+                            <div class="movieBox_dsc_text-Scope"><span class="views">200 tys. wyświetleń</span><span
+                                    class="uploaded">1 dzień temu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
